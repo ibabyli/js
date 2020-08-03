@@ -1,0 +1,88 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+		<input type="checkbox" id="boxid" onclick="selAllNo();"/>全选/全不选<br/>
+		<h3>爱好</h3>
+		<input type="checkbox" name="love" value="pingpangqiu"/>乒乓球<br/>
+		<input type="checkbox" name="love" value="yumaoqiu"/>羽毛球<br/>
+		<input type="checkbox" name="love" value="wangqiu"/>网球<br/>
+
+		<input type="button" value="全选" onclick="selAll();"/>
+		<input type="button" value="全不选" onclick="selNo();"/>
+		<input type="button" value="反选" onclick="selOthers();"/>
+
+		<script type="text/javascript">
+			//实现全选的操作
+			function selAll() {
+
+				/*
+					1、获取复选框的操作
+						- 使用getElementsByName();
+					2、返回是一个数组：
+						- 属性：
+							*** checked = true;	//表示选中
+							*** checked = false;//表示没选中
+						- 遍历数组：得到的是每一个checkbox
+							* 把每一个checkboxchecked属性设置为true
+
+				*/
+				
+				//获取要操作的复选框
+				var loves = document.getElementsByName("love");
+				//遍历数组，得到每一个复选框
+				for(var i=0; i<loves.length; i++) {
+					//设置属性值为true
+					loves[i].checked = true;
+				}
+			}
+			
+			//实现全不选的操作，只需要将checked属性设置为false，其他的和全选操作是一样的
+			function selNo() {
+
+				var loves = document.getElementsByName("love");
+
+				for(var i=0; i<loves.length; i++) {
+					loves[i].checked = false;
+				}
+			}
+			
+			//实现反选的操作，需要判断复选框是否选中，（checked==true），如果选中，设置为false，否则设置为true
+			function selOthers() {
+				var loves = document.getElementsByName("love");
+				for(var i=0; i<loves.length; i++) {
+					var love = loves[i];
+					if(love.checked) {
+						
+						love.checked = false;
+					} else {
+						love.checked = true;
+					}
+				}
+			}
+			
+			//实现全选和全不选，如果这个复选框是选中状态，调用全选方法，如果不是选中状态，调用全不选方法
+			function selAllNo() {
+				var boxid = document.getElementById("boxid");
+				if(boxid.checked) {
+					//调用全选方法
+					selAll();
+				} else {
+					//调用全不选方法
+					selNo();
+				}
+			}
+			
+		</script>
+
+	</body>
+
+</html>

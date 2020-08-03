@@ -1,0 +1,29 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		name:<input type="text" name="admin" value="王以俊"/><br/>
+
+		<script type="text/javascript">
+
+			var input = document.getElementsByName("admin")[0];
+			//alert(input.length);	//这时候提示undefined 
+			alert(input.value);
+			
+			var input = document.getElementsByTagName("input")[0];
+			//alert(input.length);	//这时候提示undefined 
+			alert(input.value);
+		</script>
+
+	</body>
+
+</html>

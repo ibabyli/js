@@ -1,0 +1,36 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		<ul id="uId">
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+		<script type="text/javascript">
+
+			//想要获取ul下面的所有子标签
+			//首先要获取ul对象
+			var ul1 = document.getElementById("uId");
+			//获取li
+			//此方法兼容性很差，不推荐使用
+			//var lis = ul1.childNodes;
+			//alert(lis.length);
+
+			var lis = ul1.getElementsByTagName("li");
+			alert(lis.length);
+			
+		</script>
+
+	</body>
+
+</html>

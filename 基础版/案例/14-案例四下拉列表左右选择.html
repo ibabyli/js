@@ -1,0 +1,167 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+			
+			#div1 {
+				width:50px; 
+				height:50px; 
+				border:2px solid blue; 
+				margin-left:30px;
+			}
+			#div2 {
+				width:50px; 
+				height:50px; 
+				border:2px solid red; 
+				position:relative;
+				left: 25px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		
+		<div id="left" style="float:left; margin-right:50px;">
+
+			<div id="div1">
+
+				<select multiple="multiple" id="select1">
+					<option>西施</option>
+					<option>王昭君</option>
+					<option>貂蝉</option>
+					<option>杨玉环</option>
+				</select>
+
+			</div>
+
+			<div id="button1">
+
+					<input type="button" value="选择添加到右边" onclick=
+					"selToRight();"/> <br/>
+					<input type="button" value="全部添加到右边" onclick=
+					"selAllToRight();"/> <br/>
+
+			</div>
+
+		</div>
+
+		<div id="right">
+
+			<div id="div2">
+
+				<select multiple="multiple" id="select2">
+					<option>乔峰</option>
+					<option>虚竹</option>
+					<option>张无忌</option>
+					<option>王语嫣</option>
+				</select>
+
+			</div>
+
+			<div id="button2">
+
+					<input type="button" value="选择添加到左边" onclick=
+					"selToLeft();"/> <br/>
+					<input type="button" value="全部添加到左边" onclick=
+					"selAllToLeft();"/> <br/>
+
+			</div>
+
+		</div>
+		<script type="text/javascript">
+
+			//实现 选择添加到右边的方法
+			function selToRight() {
+				/*
+					1、获取select里面的option
+						- getElementsByTagName()方法
+					2、判断是否选中
+						- 属性：
+							** selected == true; 选中
+							** selected==false:没有选中
+
+					3、把选中的添加到右边
+					4、得到select2
+					5、添加选择方法
+						- appendChild()方法
+				*/
+
+				var se1 = document.getElementById("select1");
+				var se2 = document.getElementById("select2"); 
+				var ops = se1.getElementsByTagName("option");
+
+				for(var i=0; i<ops.length; i++) {
+					//第一次循环，i=0 length=4
+					//第二次： i=1 length=3
+					//length长度在减少
+					if(ops[i].selected == true) {
+						se2.appendChild(ops[i]);
+						i--;		
+						//因为length长度在变化，所以为了保证能正常实现功能呢，每次再将i减一			
+					}
+					
+				}
+			}
+
+			//实现 全部添加到右边的方法
+			function selAllToRight() {
+				/*
+					和选择添加到右边相比，少了一个  不需要判断 selected属性
+				*/
+
+				var se1 = document.getElementById("select1");
+				var se2 = document.getElementById("select2"); 
+				var ops = se1.getElementsByTagName("option");
+
+				for(var i=0; i<ops.length; i++) {
+					se2.appendChild(ops[i]);
+					i--;
+				}
+			}
+
+			//实现 选择添加到左边的方法
+			function selToLeft() {
+				/*
+					通选择添加到右边相比，只不过操作相反了而已
+				*/
+
+				var se1 = document.getElementById("select1");
+				var se2 = document.getElementById("select2"); 
+				var ops = se2.getElementsByTagName("option");	//得到se2下面的option
+
+				for(var i=0; i<ops.length; i++) {
+					
+					if(ops[i].selected == true) {
+						se1.appendChild(ops[i]);	//这里是将s2下面的option添加到se1下面
+						i--;		
+									
+					}
+					
+				}
+			}
+
+			//实现 全部添加到左边的方法
+			function selAllToLeft() {
+				/*
+					和全部添加到右边相比，操作相反而已
+				*/
+
+				var se1 = document.getElementById("select1");
+				var se2 = document.getElementById("select2"); 
+				var ops = se2.getElementsByTagName("option");	//得到se2下面的option
+
+				for(var i=0; i<ops.length; i++) {
+					se1.appendChild(ops[i]);	//这里是将s2下面的option添加到se1下面
+					i--;
+				}
+			}
+
+			
+		</script>
+
+	</body>
+
+</html>

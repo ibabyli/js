@@ -1,0 +1,49 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<ul id="ul1">
+			<li id="li1">西施</li>
+			<li id="li2">王昭君</li>
+			<li id="li3">貂蝉</li>
+			<li id="li4">杨玉环</li>
+		</ul>
+
+		<div id="div">
+
+		</div>
+
+		<input type="button" value="copy" onclick="copy();">
+
+		<script type="text/javascript">
+			
+			//把ul列表复制到另一个div里面
+			function copy() {
+				/*
+					1、获取到ul标签
+					2、执行复制方法，cloneNode(true);
+					3、把复制之后的内容放到div里面
+						** 获取到div
+						** appendChild()方法
+				*/
+				
+				var ul = document.getElementById("ul1");
+				var copy = ul.cloneNode(true);
+				var div = document.getElementById("div");
+				div.appendChild(copy);
+			}
+			
+		</script>
+
+	</body>
+
+</html>

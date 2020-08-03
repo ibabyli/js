@@ -1,0 +1,79 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<select id="countryid" onchange="add1(this.value)">
+			<option value="0">--请选择--</option>
+			<option value="中国">中国</option>
+			<option value="美国">美国</option>
+			<option value="德国">德国</option>
+			<option value="日本">日本</option>
+		</select>
+
+		<select id="cityid">
+		</select>
+
+	</body>
+
+	<script type="text/javascript">
+		
+		//创建一个二维数组存储数据
+		var arr = new Array(4);
+		arr[0] = ["中国", "北京", "湖北", "深圳", "东莞", "钓鱼岛"];
+		arr[1] = ["美国", "纽约", "华盛顿", "底特律", "休斯顿"];
+		arr[2] = ["德国", "柏林", "慕尼黑", "法兰克福", "狼堡"];
+		arr[3] = ["日本", "东京", "大阪", "广岛", "长崎"];
+
+		function add1(val) {
+			
+			/*
+				由于每次都向city里面添加option
+				第二次添加，变成了追加
+					* 每次添加之前，判断一下city里面是否有option，如果有，删除
+			*/
+			var city = document.getElementById("cityid");
+			var ops = city.getElementsByTagName("option");
+
+			for(var i=0; i<ops.length; i++) {
+				city.removeChild(ops[i]);
+				i--;
+			}
+			//alert(val);
+			/*
+				1、遍历二维数组
+				2、得到的也是一个数组（国家对应关系）
+				3、拿到数组中的第一个元素和传递过来的值作比较
+				4、如果相同，获取到第一个值后面的元素
+				5、得到city的select
+				6、添加过去 appendChild方法
+					- 创建option （三步）
+			*/
+			//var city = document.getElementById("cityid");
+			for(var i=0; i<arr.length; i++) {
+				var arr1 = arr[i];
+				if(arr1[0] == val) {
+					for(var j=1; j<arr1.length; j++) {
+						var ars = arr1[j];
+						var op = document.createElement("option");
+						var text = document.createTextNode(ars);
+						op.appendChild(text);
+						city.appendChild(op);
+					}
+				}
+			}
+		}
+			
+	</script>
+
+	
+
+</html>

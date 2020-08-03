@@ -1,0 +1,42 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		<input type="text" id="inputId" value="王以俊" name="input"/>
+
+		<script type="text/javascript">
+			
+			//先获取到input标签
+			var input1 = document.getElementById("inputId");
+			//alert(input1.value);
+
+			//alert(input1.class);  获取不了class的值
+			//alert(input1.getAttribute("class"));
+			input1.setAttribute("class","haha");
+			alert(input1.getAttribute("class"));
+
+			alert(input1.getAttribute("name"));
+			//但是不能删除value里面的值
+			input1.removeAttribute("name");
+			alert(input1.getAttribute("name"));
+
+			alert(input1.getAttribute("value"));
+			//但是不能删除value里面的值
+			input1.removeAttribute("value");
+			alert(input1.getAttribute("value"));
+			
+			
+		</script>
+
+	</body>
+
+</html>

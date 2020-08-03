@@ -1,0 +1,55 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			
+			//获取当前时间
+			var date = new Date();
+			document.write(date);	//Sat May 13 13:02:07 UTC+0800 2017 
+			//转换成习惯的格式
+			document.write("<hr/>");
+			document.write(date.toLocaleString());
+
+			//得到当前的年
+			document.write("<hr/>");
+			document.write(date.getFullYear());
+
+			//得到当前的月
+			document.write("<hr/>");
+			var month = date.getMonth()+1;
+			document.write("month:" + month);
+
+			//得到当前的星期
+			document.write("<hr/>");
+			document.write("星期：" +date.getDay());
+
+			//得到当前的日
+			document.write("<hr/>");
+			document.write("日：" +date.getDate());
+
+			//得到当前的小时
+			document.write("<hr/>");
+			document.write("小时：" +date.getHours());
+			
+			//得到当前的分钟
+			document.write("<hr/>");
+			document.write("分钟：" +date.getMinutes());
+
+			//得到当前的秒
+			document.write("<hr/>");
+			document.write("秒：" +date.getSeconds());
+		</script>
+
+	</body>
+
+</html>

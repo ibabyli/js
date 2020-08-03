@@ -1,0 +1,69 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			
+			//length属性
+			var arr1 = [1,2,3]
+			document.write(arr1.length);
+			document.write("<hr/>");
+
+			//concat方法
+			var arr2 = [1,2,3]
+			var arr3 = [4,false,"world"];
+			document.write(arr2.concat(arr3));
+			document.write("<hr/>");
+
+			//join方法
+			var arr4 = ["a","b","c"];
+			document.write(arr4);
+			document.write("<br/>");
+			document.write(arr4.join("--"));
+			document.write("<hr/>");
+
+			//push方法
+			var arr5 = ["zhangsan","lisi","wangwu"];
+			document.write("new length:" + arr5.push("zhaoliu"));
+			document.write("<br/>");
+			document.write(arr5);
+
+			document.write("<hr/>");
+			var arr6 = [1,2,3];
+			var arr7 = ["a","b"];
+			document.write("新数组的长度：" +arr6.push(arr7));
+			document.write("<br/>");
+			document.write("数组的遍历：<br/>");
+			for(var i=0; i<arr6.length; i++) {
+				document.write(arr6[i]);
+				document.write("<br/>");
+			}
+
+			//pop方法
+			document.write("<hr/>");
+			var arr8 = ["a","b","c","d"];
+			document.write("return:" + arr8.pop());
+			document.write("<br/>");
+			document.write(arr8);
+
+			//reverse方法
+			document.write("<hr/>");
+			var arr9 = [1,2,3];
+			document.write(arr9.reverse());
+
+			
+			
+		</script>
+
+	</body>
+
+</html>

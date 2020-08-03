@@ -1,0 +1,51 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<ul id="ul1">
+			<li id="li1">西施</li>
+			<li id="li2">王昭君</li>
+			<li id="li3">貂蝉</li>
+			<li id="li4">杨玉环</li>
+		</ul>
+
+		<input type="button" value="insert" onclick="insert1()">
+
+		<script type="text/javascript">
+
+			function insert1() {
+				//在<li>貂蝉之前添加<li>刘亦菲</li>
+
+				/*
+					1、获取到li3标签
+					2、创建li
+					3、创建文本
+					4、把文本添加到li下面
+					5、获取ul
+					6、把li添加到ul下面
+				*/
+				//对应的6步
+				var li3 = document.getElementById("li3");
+				var li = document.createElement("li");
+				var text = document.createTextNode("刘亦菲");
+				li.appendChild(text);
+				var ul = document.getElementById("ul1");
+				ul.insertBefore(li,li3);
+
+
+			}
+			
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			
+			var str = "alert('123')";
+			//alert(str);
+			//eval(str);
+			document.write("<hr/>");
+
+			//encodeURI
+			var str1 = "测试中文1234";
+			var encode = encodeURI(str1);
+			document.write(encode);
+
+			//decodeURI
+			document.write("<hr/>");
+			var decode = decodeURI(encode);
+			document.write(decode);
+
+			//isNaN 返回true和false 是数字返回false，不是数字返回true
+			document.write("<hr/>");
+			var str2 = "aaa"
+			document.write(isNaN(str2));
+
+			//parseInt()
+			document.write("<hr/>");
+			var str3 = "123";
+			alert(str3+1);
+			alert(parseInt(str3) + 1);
+
+
+			
+		</script>
+
+	</body>
+
+</html>

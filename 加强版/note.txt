@@ -1,0 +1,376 @@
+1、js的string对象
+	** 创建string对象
+		*** var str ="acb";
+	** 方法和属性
+		** 属性 length：字符串的长度
+
+		** 方法
+		（1）与HTML相关的方法
+			- bold()：加粗
+			- fontcolor()：设置字体的颜色
+			- fontsize()：设置字体的大小(1-7)
+			- link()：将字符串显示成超链接
+			- sub() sup()：下标和上标
+
+		（2）与Java相似的方法
+
+			- concat():连接字符串
+				**  var str1 = "abc";
+					var str2 = "def";
+					document.write(str1.concat(str2));
+
+			- charAt()：返回指定位置的字符串
+				**  var str3 = "lizike";
+					document.write(str3.charAt(2));		//字符位置不存在，返回空字符串
+
+			- indexOf()：返回字符串位置
+				**  var str4 = "world";
+					document.write(str4.indexOf("l"));
+					document.write("<br/>");
+					document.write(str4.indexOf("W"));	//字符不存在，返回-1
+
+			- split()：切分字符串，成数组
+				**  var str5 = "a-b-c-d";
+					var arr1 = str5.split("-");
+					document.write(arr1);
+					document.write("<br/>");
+					document.write("length:" + arr1.length);
+
+			- replace()：替换字符串
+				**  var str6 = "abcde";
+					document.write(str6.replace("a","Q"));
+
+			- substr() 和 substring()
+				**  var str7 = "wangyijun love lily";
+					document.write(str7.substr(10, 4));	//love 从第10位开始，向后截取4个字符
+						*** 从第几位开始，向后截取几位
+					document.write("<br/>");
+					document.write(str7.substring(10,14));	// love 从第几位开始到第几位结束 [10,14)
+						*** 从第几位开始，到第几位结束，但是不包含最后一位
+
+2、js的Array对象
+	** 属性：length：查看数组的长度
+
+	** 方法
+		- concat()：数组的连接
+
+		- join()：根据指定的字符分隔数组
+			**  var arr4 = ["a","b","c"];
+				document.write(arr4.join("--"));
+
+		- push()：向数组末尾添加元素，返回数组的新长度
+			** 如果添加的是一个数组，这个时候把数组当做一个整体字符串加进去。
+
+		- reverse()：颠倒数组中的元素顺序
+
+3、js的Date对象
+	** 在Java里面获得当前时间
+		Date date = new Date();
+		//利用SimpleDateFormat格式化
+		//使用toLocaleString格式化
+
+	** js里面获取当前时间
+			//获取当前时间
+			var date = new Date();
+			document.write(date);	//Sat May 13 13:02:07 UTC+0800 2017 
+
+			//转换成习惯的格式
+			document.write("<hr/>");
+			document.write(date.toLocaleString());
+
+	** 获取当前年的方法
+		getFullYear():得到当前的年
+			*** document.write(date.getFullYear());
+	
+	** 获取当前的月方法
+		getMonth()：得到当前的月
+			*** 返回的是0-11月，如果想要得到准确的值，加一
+
+	** 获取当前的星期
+		getDay()：得到星期
+			*** 返回的是0-6，0表示星期天，1-6表示星期一到星期六
+
+	** 得到当前的日
+		getDate()：得到当前的天
+			*** 返回的是1-31
+
+	** 得到当前的小时
+		getHours()；获取小时
+	
+	** 获取当前的分钟
+		getMinutes()；获取分钟
+
+	** 获取当前的秒
+		getSeconds()：获取秒
+
+	** 获取毫秒数
+		getTime()：返回的是从1970 1 1 到至今的毫秒数
+
+		** 应用场景：
+			*** 使用毫秒数处理缓存的效果（让其不有缓存）
+				http://www.baidu.com?毫秒数
+
+4、js的Math对象
+
+	** 数学的运算
+	** 里面的都是静态方法，使用可以直接使用Math.方法名()
+
+	** ceil(x):向上舍入
+
+	** floor(x):向下舍入
+
+	** round(x):四舍五入
+
+	** random()：得到0-1之间的随机小数数（伪随机数）
+		- //得到0-9的随机整数
+			document.write(Math.floor(Math.random() * 10));
+
+	** max(x,y)
+
+	** min(x,y)
+
+	** pow(x,y)：得到的是x的y次方
+
+	属性：
+		** PI
+
+5、js的全局函数
+	* 由于不属于任何一个对象，直接写名称使用
+
+	** eval()：执行js代码（如果字符串是一个js代码，使用方法直接执行）
+		var str = "alert('123')";
+		//alert(str);
+		eval(str);
+
+	** encodeURI()：对字符进行编码
+
+	** decodeURI()：对字符进行解码
+
+	** isNaN()：判断当前字符串是否为数字
+		*** 如果是数字，返回false
+		*** 如果不是数字，返回true
+
+	** parseInt()：类型转换
+		**  var str3 = "123";
+			alert(str3+1);
+			alert(parseInt(str3) + 1);
+
+6、js的函数重载
+	** 什么是重载？ 方法名相同，参数不同
+
+	** js里面是否存在重载（面试题目）
+		（1）js里面不存在重载
+		（2）但是可以通过其他方式模拟重载的效果（通过arguments数组来实现）
+			//模拟重载（实际开发基本不会用到）
+			function add() {
+				if(arguments.length == 2) {
+					return arguments[0]+arguments[1];
+				} else if(arguments.length == 3) {
+					return arguments[0]+arguments[1]+arguments[2];
+				} else {
+					return 0;
+				}
+			}
+
+			alert(add(1,2));
+			alert(add(1,2,3));
+			alert(add(1,2,3,4));
+
+7、js的bom对象
+	
+	** bom：broswer object model：浏览器对象模型
+
+	** 有哪些对象？
+		*** navigator：获取客户端的信息（浏览器的信息）
+			- navigator.appName();
+		*** screen：获取屏幕的信息
+			 - screen.width;
+			 - screen.height;
+
+		*** location：请求URL地址
+			- href属性
+				*** 获取到请求的URL地址
+					 - document.write(location.href);
+				*** 设置URL地址
+					 - 页面上设置一个按钮，按钮上绑定一个事件，当我点击这个按钮时，页面可以跳转到另一个页面
+					 - location.href="07-js的不重载.html";
+				*** <input type="button" value="goto" onclick="href()"/>
+					 - 鼠标点击事件 onclick="js的方法";
+
+
+		*** history：请求的URL的历史记录
+			- 创建三个页面
+				1、创建第一个页面 a.html 写一个超链接到b.html
+				2、创建b.html 超链接到c.html
+				3、创建c.html
+
+			- 到访问的上一个页面
+				history.go(-1);
+				history.back();
+
+			- 到访问的下一个页面
+				history.go(1);
+				history.forward();
+		
+		*** window(***)
+			* 窗口对象
+			* 顶层对象（所用的bom对象都是在window里面操作的）
+
+			** 方法
+				- window.alert():页面弹出一个框，显示内容
+
+				- confirm():确认提示框
+					- var flag = window.confirm("显示的内容");
+
+				- prompt():输入的对话框
+					window.prompt("页面显示的内容","输入框里面的默认值");
+
+				- open():打开一个新的窗口
+					** open("打开的窗口的地址URL","","窗口特征，比如：宽度和高度");
+						open("hello.html","","width=200,height=100");
+
+				- close():关闭窗口（浏览器兼容性比较差）
+				
+				- 做定时器
+				** setInterVal("js代码",毫秒数);	1秒 = 1000毫秒
+					- 表示每三秒执行一次alert方法
+					setInterval("alert(123)",3000);
+				
+				** setTimeout("js代码",毫秒数);
+					- 表示在毫秒数之后执行，但是只会执行一次
+					setTimeout("alert('wangyijun'), 1000");
+				
+				**  clearInterval(); 清除setInterval设置的定时器
+					var id1 = setInterval("alert(123)", 3000);
+					clearInterval(id1);
+
+				**	clearTimeout(); 清除setTimeout设置的定时器
+					使用方法同理
+
+8、js的dom对象
+	
+	* dom：document object model：文档对象模型
+	**  文档：
+			超文本文档（超文本标记文档） HTML、XML
+	
+	** 对象：
+			提供了属性和方法
+
+	** 模型：使用属性和方法操作超文本标记型文档
+
+	*** 可以使用js里面提供的dom对象，使用这些对象的属性和方法，对标记型文档进行操作。
+
+	*** 想要对标记型文档进行操作，首先需要对标记型文档里面的所有内容封装成对象
+			-- 需要把HTML里面的标签、属性、文本内容都封装成为对象
+
+	*** 要想对标记型文档进行操作，解析标记型文档
+			-- 画图分析，如何使用dom解析HTML
+
+	*** 解析过程
+			根据HTML的层级结构，在内存中分配一个树形结构，需要把HTML中的每部分封装成对对象
+			- document对象：整个文档
+			- element对象：标签对象
+			- 属性对象
+			- 文本对象
+
+			-- Node节点对象，这个对象是这些对象的父对象
+				*** 如果在对象里面找不到想要的方法，这个时候到Node对象里面去找。
+
+	*** dom模型有三种：（了解）
+			dom level 1：将HTML文档封装成对象
+			dom level 2：在level 1 的基础上添加新的功能，例如：对于时间和css样式的支持
+			dom level 3：支持HTML 1.0 的一些新特性。
+
+	* DHTML：是很多技术的简称
+		** HTML：封装数据
+		** css：使用属性和属性值设置样式
+		** dom：操作HTML文档（标记型文档）
+		** JavaScript：专门指的是js的语法语句（ECMAScript）
+
+9、document对象
+	* 表示整个的文档
+
+	** 常用方法
+		*** write()
+				（1）：向页面输出变量（值）
+				（2）：向页面输出HTML代码
+
+		*** getElementById()
+				- 通过id得到元素（标签）
+				- 代码：
+				name:<input type="text" id="name" value="王以俊" name="admin"/>
+
+				var input1 = document.getElementById("name");	//得到的是一个对象
+				alert(input1);
+				//得到input里面的value值
+				alert(input1.value);
+				//得到input里面的name值
+				alert(input1.name);
+				//向input里面设置一个value值
+				input1.value = "王大锤";
+
+		*** getElementsByName("标签的name属性值")
+				- 通过标签的name属性值得到标签
+				- 返回的是一个集合（数组）
+				- 代码：
+				var inputs = document.getElementsByName("admin");  //传递的参数是标签里面的name值
+				//alert(inputs.length);
+				for(var i=0; i<inputs.length; i++) {
+					var value = inputs[i].value;
+					alert(value);
+					//修改里面的value值
+					inputs[i].value = "令狐冲";
+				}
+
+		*** getElementsByTagName("标签名称");
+				- 通过标签名称得到元素
+				- 代码：
+				var inputs = document.getElementsByTagName("input");
+				alert(inputs.length);
+				for(var i=0; i<inputs.length; i++) {
+					var value = inputs[i].value;
+					alert(value);
+				}
+				
+		**** 注意地方
+				*** 只有一个标签，这个标签里面只能使用name获取到，这个使用，getElementsByName()返回的是一个数组，
+					但是现在只有一个元素，这个时候就不要使用数组遍历，而是可以直接通过数组的下标获取到值
+
+				*** 代码：
+
+					var input = document.getElementsByName("admin")[0];
+					//alert(input.length);	//这时候提示undefined 
+					alert(input.value);
+				*** getElementsByTagName()同理
+
+					var input = document.getElementsByTagName("input")[0];
+					alert(input.value);
+
+10、案例：window弹窗案例
+	
+	实现过程
+		1、创建一个页面
+			** 有两个输入项和一个按钮
+			** 按钮上面有一个事件，弹出一个新窗口 open方法
+
+		2、创建弹出页面
+			** 表格
+			** 每一行有一个按钮和编号姓名
+			** 按钮上有一个事件，把当前的编号和姓名，赋值到第一个页面的位置
+
+			function s(num1,name1) {
+				//需要把num1和name1的值赋值到window页面
+				//跨页面的操作 opener：得到创建这个窗口的父窗口
+				var pWin = window.opener;
+				pWin.document.getElementById("num").value = num1;
+				pWin.document.getElementById("name").value = name1;
+				//关闭这个窗口
+				window.close();
+			}
+
+		- opener属性：获取到创建这个窗口的父窗口
+
+		- 做这个案例时候会有一个问题
+			
+			*** 由于我们现在访问的是本地文件，js安全性级别很高，不允许访问本地文件
+			*** 在实际开发中，没有这样的问题，实际中不可能访问本地的文件。

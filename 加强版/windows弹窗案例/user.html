@@ -1,0 +1,56 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<table border="1" bordercolor="blue" width="190" height="140">
+			<tr>
+				<th>操作</th>
+				<th>编号</th>
+				<th>姓名</th>
+			</tr>
+			<tr>
+				<td><input type="button" value="选择" onclick="s('001','王以俊');"/></td>
+				<td>001</td>
+				<td>王以俊</td>
+			</tr>
+			<tr>
+				<td><input type="button" value="选择" onclick="s('002','王小利');"/></td>
+				<td>002</td>
+				<td>王小利</td>
+			</tr>
+			<tr>
+				<td><input type="button" value="选择" onclick="s('003','王大锤');"/></td>
+				<td>003</td>
+				<td>王大锤</td>
+			</tr>
+		</table>
+
+		<script type="text/javascript">
+
+			function s(num1,name1) {
+				//需要把num1和name1的值赋值到window页面
+				//跨页面的操作 opener：得到创建这个窗口的父窗口
+				
+				var pWin = window.opener;
+				alert(pWin);
+				pWin.document.getElementById("num").value = num1;
+				pWin.document.getElementById("name").value = name1;
+				
+				//关闭这个窗口
+				window.close();
+			}
+			
+		</script>
+
+	</body>
+
+</html>

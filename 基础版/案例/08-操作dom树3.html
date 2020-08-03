@@ -1,0 +1,44 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<ul id="ul1">
+			<li id="li1">西施</li>
+			<li id="li2">王昭君</li>
+			<li id="li3">貂蝉</li>
+			<li id="li4">杨玉环</li>
+		</ul>
+
+		<input type="button" value="remove" onclick="remove();">
+
+		<script type="text/javascript">
+			
+			//刪除<li id="li4">杨玉环</li>
+			function remove() {
+				/*
+					1、获取到li4标签
+					2、获取父节点ul标签
+					3、执行删除
+				*/
+				
+				var li4 = document.getElementById("li4");
+				//获取到父节点：；两个方法 
+				//1、document.getElementById("id"); 2、parentNode属性
+				var ul = li4.parentNode; //使用第二个
+				ul.removeChild(li4);
+			}
+			
+		</script>
+
+	</body>
+
+</html>

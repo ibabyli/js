@@ -1,0 +1,43 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			
+			//使用第一种方式创建函数
+			function test() {
+				alert("aaaaaaa");
+			}
+			//调用
+			test();
+
+			//定义一个有参数的方法，实现两个数的相加
+			function add1(a, b) {
+				//alert(a+b); 或者
+				var sum = a+b;
+				alert(sum);
+			}
+			
+			add1(3, 4);
+
+			//有返回值的效果
+			function add2(a, b, c) {
+				return a+b+c;
+			}
+
+			var result = add2(1, 2, 3);
+			alert(result);
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<ul id="ul1">
+			<li id="li1">西施</li>
+			<li id="li2">王昭君</li>
+			<li id="li3">貂蝉</li>
+			<li id="li4">杨玉环</li>
+		</ul>
+
+		<input type="button" value="replace" onclick="replace();">
+
+		<script type="text/javascript">
+			
+			//<li id="li4">杨玉环</li> 替换 <li>刘亦菲</li>
+			function replace() {
+				/*
+					1、获取到li4标签
+					2、创建li
+					3、创建文本
+					4、把文本添加到li下面
+					5、获取ul标签（父节点）
+					6、执行替换操作
+				*/
+				
+				var li4 = document.getElementById("li4");
+				var li = document.createElement("li");
+				var text = document.createTextNode("刘亦菲");
+				li.appendChild(text);
+				var ul = document.getElementById("ul1");
+				ul.replaceChild(li,li4);
+			}
+			
+		</script>
+
+	</body>
+
+</html>

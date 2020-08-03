@@ -1,0 +1,40 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<input type="button" value="goto" onclick="href()"/>
+
+		<script type="text/javascript">
+
+			function href() {
+				//alert("aaa");
+				location.href="07-js的不重载.html";
+			}
+
+			document.write("<hr/>");
+			//navigator对象
+			document.write(navigator.appName);
+			
+			//screen对象
+			document.write("<hr/>");
+			document.write(screen.height);
+			document.write("<br/>");
+			document.write(screen.width);
+
+			//location对象
+			document.write("<hr/>");
+			document.write(location.href);
+		</script>
+
+	</body>
+
+</html>

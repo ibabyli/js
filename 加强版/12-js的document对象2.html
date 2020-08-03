@@ -1,0 +1,32 @@
+<html>
+
+	<head>
+		<title>World</title>
+
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+		name1:<input type="text" name="admin" value="王以俊"/><br/>
+		name2:<input type="text" name="admin" value="王大锤"/><br/>
+		name3:<input type="text" name="admin" value="王小利"/><br/>
+		name4:<input type="text" name="admin" value="王八蛋"/><br/>
+		<script type="text/javascript">
+
+			var inputs = document.getElementsByName("admin");
+			//alert(inputs.length);
+			for(var i=0; i<inputs.length; i++) {
+				var value = inputs[i].value;
+				alert(value);
+				//修改里面的value值
+				inputs[i].value = "令狐冲";
+			}
+			
+		</script>
+
+	</body>
+
+</html>

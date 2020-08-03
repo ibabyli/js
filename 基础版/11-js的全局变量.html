@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>全局变量</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">	
+			var aa = 10;
+			alert("方法外部调用aa:" + aa);
+			//定义一个方法
+			function test() {
+				alert("方法内部调用aa:" + aa);
+			}
+			test();
+		</script>
+		<script type="text/javascript">
+			alert("在另外一个script标签使用：" + aa);
+		</script>
+	</body>
+</html>
